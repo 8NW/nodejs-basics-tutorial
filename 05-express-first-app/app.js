@@ -5,12 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
+var routes = require('./routes/index'); // the requires files for the route request below
 
-var app = express();
+var app = express(); //creates the app by running express as a function
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views')); //these configure the express and links the views folder for templating
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
@@ -19,9 +19,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); // says that the files should be able to be accessed in a static sense
 
-app.use('/', routes);
+app.use('/', routes); //this sets up the different routes, index, users, etc.
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
